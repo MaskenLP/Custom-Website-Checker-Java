@@ -1,0 +1,2 @@
+http://www.nidaku.de/forum/index.php/ true
+http://www.nidaku.de/ false
