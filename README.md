@@ -20,4 +20,6 @@ A small jar that can check Websites for a self-defined String
 -> 6. Acces the out.txt via PHP,etc. and use it :D
 --------------------------------------------------------------------------------------------------------
 
+---> The files out.txt, in.txt, console.txt are only as Preview, because the file in.txt + out.txt will be created automatically.
+
 This Project is using the following Color Debug Printer Lib : https://github.com/dialex/JCDP
