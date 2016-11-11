@@ -24,7 +24,8 @@ public class Main {
 			AnsiConsole.systemInstall();
 			System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(GREEN).a(" : Starting Checker ...").reset());
 			System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(CYAN).a(" : by MaskenLP Version 1.0").reset());
-
+			System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(RED).a(" : reading URLs from file and deleting duplicate lines").reset());
+			System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(CYAN).a(" : =========================================================================================").reset());
 			ArrayList<String> Output = new ArrayList<String>();
 
 			String path = "in.txt";
@@ -37,11 +38,15 @@ public class Main {
 				Scanner s = new Scanner(file);
 
 				while (s.hasNextLine()) {
-					Temp.add(s.nextLine());
-
+					String lne = s.nextLine();
+					if(Temp.contains(lne)){
+						System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(RED).a(" : The URL ").fg(MAGENTA).a(lne).fg(RED).a(" is duplicate in your File... To avoid abusing this tool for DDos usages The URL will be removed").reset());
+					}else{
+					Temp.add(lne);
+					}
 				}
 				s.close();
-
+				System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(CYAN).a(" : =========================================================================================").reset());
 			} catch (FileNotFoundException e) {
 				System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(RED).a(" : The File in.txt was not found! Generating!").reset());
 				File f = new File(path);
@@ -75,8 +80,6 @@ public class Main {
 
 			}
 			System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(GREEN).a(" : =========================================================================================").reset());
-			System.out.println(" ");
-			System.out.println(" ");
 			System.out.println(ansi().fg(BLUE).a("[").fg(CYAN).a("Webseite-Check").fg(BLUE).a("]").fg(YELLOW).a(" : =========================================================================================").reset());
 
 			for (int i = 0; i <= Temp.size() - 1; i++) {
